@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import CourseModel from "../models/course.model.js";
 import GovEmployeeModel from "../models/govemployee.model.js";
 
-
 async function connect() {
   try {
     const dbConnection = await mongoose.connect(process.env.MONGODB_URI);
@@ -10,10 +9,7 @@ async function connect() {
     console.log(
       `Connected to the database. DB_NAME: ${dbConnection.connection.name}`
     );
-    await CourseModel.deleteMany();
-    return GovEmployeeModel.deleteMany();
-  } 
-  catch (error) {
+  } catch (error) {
     console.log(error);
   }
 }
